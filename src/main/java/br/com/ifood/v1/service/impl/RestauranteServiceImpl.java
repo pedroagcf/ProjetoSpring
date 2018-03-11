@@ -3,47 +3,42 @@ package br.com.ifood.v1.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.ifood.v1.modells.Restaurante;
+import br.com.ifood.v1.repositories.RestauranteRepository;
 import br.com.ifood.v1.service.RestauranteService;
 
 @Service
 public class RestauranteServiceImpl implements RestauranteService{
 	
+	@Autowired(required = true)
+	RestauranteRepository rRepository;
+	
 	@Override
-	public List<Restaurante> listar() {
-		List<Restaurante> restaurantes = new ArrayList<>();
-		restaurantes.add(new Restaurante("pedro", "33435465", "rua do inacio", "o cowboy vai te pegar", 4343324, 42342423));
-		restaurantes.add(new Restaurante("felipe", "33435465", "fskifhud", "fsdfsdf", 345, 53453));
-		restaurantes.add(new Restaurante("joao", "4534", "vdfg", "gdfg", 879, 6345));
-		restaurantes.add(new Restaurante("buceta", "353", "325524", "vxdr", 4343324, 42342423));
-		restaurantes.add(new Restaurante("cu", "33435465", "fdb", "53cdsf", 432, 4665));
-		return restaurantes;
+	public List<Restaurante> listar() {	
+		return rRepository.findAll();	
  	}
 
 	@Override
-	public Restaurante criar(Restaurante rest) {
-		// TODO Auto-generated method stub
-		return null;
+	public Restaurante criar(Restaurante restaurante) {
+		return rRepository.save(restaurante);
 	}
 
 	@Override
-	public Restaurante atualizar(Restaurante rest) {
-		// TODO Auto-generated method stub
-		return null;
+	public Restaurante atualizar(Restaurante restaurante) {
+		return rRepository.save(restaurante);
 	}
 
 	@Override
 	public Restaurante procurarId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return rRepository.findOne(id);
 	}
 
 	@Override
-	public void delete(Restaurante rest) {
-		// TODO Auto-generated method stub
-		
+	public void delete(Restaurante restaurante) {
+		rRepository.delete(restaurante);;
 	}
 
 }

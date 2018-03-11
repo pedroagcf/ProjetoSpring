@@ -1,6 +1,16 @@
 package br.com.ifood.v1.modells;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Restaurante {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	
 	private String nome;
 	private String telefone;
@@ -9,13 +19,26 @@ public class Restaurante {
 	private double latitude;
 	private double longitude;
 	
+	public Restaurante() {
+		
+	}
+	
 	public Restaurante(String nome, String telefone, String endereco, String email, double latitude, double longitude) {
+		
 		this.nome = nome;
 		this.telefone = telefone;
 		this.endereco = endereco;
 		this.email = email;
 		this.latitude = latitude;
 		this.longitude = longitude;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
