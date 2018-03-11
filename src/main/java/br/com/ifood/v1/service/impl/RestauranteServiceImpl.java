@@ -38,7 +38,7 @@ public class RestauranteServiceImpl implements RestauranteService{
 
 	@Override
 	public void delete(Restaurante restaurante) {
-		rRepository.delete(restaurante);;
+		rRepository.delete(restaurante);
 	}
 
 }
