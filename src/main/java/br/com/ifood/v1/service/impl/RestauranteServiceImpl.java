@@ -11,9 +11,9 @@ import br.com.ifood.v1.repositories.RestauranteRepository;
 import br.com.ifood.v1.service.RestauranteService;
 
 @Service
-public class RestauranteServiceImpl implements RestauranteService{
+public class RestauranteServiceImpl implements RestauranteService{// boa pratica que meu service seja implementado a partir de uma interface 
 	
-	@Autowired(required = true)
+	@Autowired(required = true) // a injeçao da dependencia pode dar erro! usar sempre o required 
 	RestauranteRepository rRepository;
 	
 	@Override
