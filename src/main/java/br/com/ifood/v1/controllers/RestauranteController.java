@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ifood.v1.modells.Restaurante;
 import br.com.ifood.v1.service.RestauranteService;
 
-@RestController
+//serve para informar ao springboot que e ó controller e faz conexao http
+@RestController 
 @RequestMapping("/v1/restaurantes") //o spring se encarrega de instanciar a classe 
 public class RestauranteController {
-	
+
+	//injeçao(objeto) de dependecia
 	@Autowired(required = true)
 	private RestauranteService rService; 
 	
